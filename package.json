@@ -1,0 +1,24 @@
+{
+  "name": "pixi-match3",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Match-3 game: React + TypeScript + PixiJS (WebGL) with a Node.js WebSocket leaderboard and server-side score validation",
+  "workspaces": [
+    "packages/shared",
+    "packages/server",
+    "packages/client"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n server,client -c blue,magenta \"npm run dev -w @match3/server\" \"npm run dev -w @match3/client\"",
+    "build": "npm run build -w @match3/client && npm run build -w @match3/server",
+    "start": "npm run start -w @match3/server",
+    "test": "vitest run",
+    "typecheck": "npm run typecheck --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.1"
+  }
+}

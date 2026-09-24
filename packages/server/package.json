@@ -1,0 +1,22 @@
+{
+  "name": "@match3/server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --target=node20 --external:ws --outfile=dist/index.js",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@match3/shared": "*",
+    "ws": "^8.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.4",
+    "@types/ws": "^8.18.1",
+    "esbuild": "^0.27.0",
+    "tsx": "^4.23.15"
+  }
+}
